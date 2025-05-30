@@ -1,12 +1,14 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Ex04.Menus.Interfaces
+namespace Ex04.Menus.Interface
 {
     public class MenuItem
     {
         public string Title { get; }
         public List<MenuItem> SubItems { get; }
-        public IMenuItemNotifier? Action { get; }
+        public IMenuItemNotifier Action { get; }
 
         public bool IsLeaf
         {
@@ -20,14 +22,19 @@ namespace Ex04.Menus.Interfaces
         {
             Title = i_Title;
             Action = i_Action;
-            SubItems = new List<MenuItem>(); 
+            SubItems = new List<MenuItem>();
         }
 
-        public MenuItem(string i_Title, List<MenuItem> i_SubItems)
+        public MenuItem(string i_Title)
         {
             Title = i_Title;
-            SubItems = i_SubItems;
+            SubItems = new List<MenuItem>();
             Action = null;
+        }
+
+        public void AddSubMenu(MenuItem i_SubItem)
+        {
+            SubItems.Add(i_SubItem);
         }
 
         public void Execute()
@@ -39,8 +46,7 @@ namespace Ex04.Menus.Interfaces
                 {
                     Action.Execute();
                 }
-                Console.WriteLine(@"
-Press Enter to return...");
+                Console.WriteLine("\nPress Enter to return...");
                 Console.ReadLine();
             }
             else
@@ -56,20 +62,7 @@ Press Enter to return...");
             while (!exitSubMenu)
             {
                 Console.Clear();
-                StringBuilder menuBuilder = new StringBuilder();
-
-                menuBuilder.AppendLine("** " + Title + " **");
-                menuBuilder.AppendLine(new string('-', Title.Length + 6));
-
-                for (int i = 0; i < SubItems.Count; i++)
-                {
-                    menuBuilder.AppendLine((i + 1).ToString() + ". " + SubItems[i].Title);
-                }
-
-                menuBuilder.AppendLine("0. Back");
-                menuBuilder.Append("Please enter your choice (0-" + SubItems.Count + "): ");
-
-                Console.Write(menuBuilder.ToString());
+                Console.Write(BuildMenuDisplay());
 
                 string userInput = Console.ReadLine();
                 int choice;
@@ -86,9 +79,27 @@ Press Enter to return...");
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input.");
+                    Console.WriteLine("Invalid input. Press Enter to try again...");
+                    Console.ReadLine();
                 }
             }
+        }
+
+        private string BuildMenuDisplay()
+        {
+            StringBuilder menuBuilder = new StringBuilder();
+            menuBuilder.AppendLine("** " + Title + " **");
+            menuBuilder.AppendLine(new string('-', Title.Length + 6));
+
+            for (int i = 0; i < SubItems.Count; i++)
+            {
+                menuBuilder.AppendLine((i + 1).ToString() + ". " + SubItems[i].Title);
+            }
+
+            menuBuilder.AppendLine("0. Back");
+            menuBuilder.Append("Please enter your choice (0-" + SubItems.Count + "): ");
+
+            return menuBuilder.ToString();
         }
     }
 }
