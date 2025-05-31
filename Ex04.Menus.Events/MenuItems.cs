@@ -1,0 +1,42 @@
+﻿using System;
+
+namespace Ex04.Menus.Events
+{
+    public class MenuActions
+    {
+        public static void ShowVersion()
+        {
+            Console.WriteLine("App Version: 25.2.4.4480");
+        }
+
+        public static void CountLowercaseLetters()
+        {
+            Console.Write("Enter a sentence: ");
+            string userInput = Console.ReadLine();
+            int numberOfLowercasedLetters = 0;
+
+            if(userInput != null)
+            {
+                foreach(char c in userInput)
+                {
+                    if(char.IsLower(c))
+                    {
+                        numberOfLowercasedLetters++;
+                    }
+                }
+            }
+
+            Console.WriteLine($"There are {numberOfLowercasedLetters} lowercase letters in your text.");
+        }
+
+        public static void ShowTime()
+        {
+            Console.WriteLine($"Current Time is {DateTime.Now:HH:mm}");
+        }
+
+        public static void ShowDate()
+        {
+            Console.WriteLine($"Today's date is {DateTime.Now:dd/MM/yyyy}");
+        }
+    }
+}
