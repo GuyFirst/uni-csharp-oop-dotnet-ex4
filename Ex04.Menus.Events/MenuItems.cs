@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Text;
 
 namespace Ex04.Menus.Events
 {
     public class MenuActions
     {
+        private const string k_AppVersion = "25.2.4.4480";
         public static void ShowVersion()
         {
-            Console.WriteLine("App Version: 25.2.4.4480");
+            Console.WriteLine($"App Version: {k_AppVersion}");
         }
 
         public static void CountLowercaseLetters()
@@ -26,7 +28,8 @@ namespace Ex04.Menus.Events
                 }
             }
 
-            Console.WriteLine($"There are {numberOfLowercasedLetters} lowercase letters in your text.");
+            string letterSuffix = ("letter" + (numberOfLowercasedLetters != 1 ? "s" : ""));
+            Console.WriteLine($"There are {numberOfLowercasedLetters} lowercase {letterSuffix} in your text.");
         }
 
         public static void ShowTime()

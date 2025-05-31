@@ -7,9 +7,9 @@ namespace Ex04.Menus.Events
     {
         public string Title { get; }
         public List<MenuItem> SubItems { get; } = new List<MenuItem>();
-        public Action? Action { get; }
+        public Action Action { get; }
 
-        public MenuItem(string i_Title, Action? i_Action = null)
+        public MenuItem(string i_Title, Action i_Action = null)
         {
             Title = i_Title;
             Action = i_Action;
@@ -36,21 +36,20 @@ namespace Ex04.Menus.Events
                 {
                     Console.WriteLine($"{i + 1}. {SubItems[i].Title}");
                 }
+                string backOption = i_IsRoot ? "Exit" : "Back";
+                string optionsToChooseFrom = (SubItems.Count <= 1
+                                                  ? ("(1 or 0 to " + backOption)
+                                                  : ("(1-" + SubItems.Count + " or 0 to " + backOption) + "):");
 
-                Console.WriteLine("0. " + (i_IsRoot ? "Exit" : "Back"));
-                Console.WriteLine(
-                    "Please enter your choice "
-                    + (SubItems.Count <= 1
-                           ? ("(1 or 0 to " + (i_IsRoot ? "Exit" : "Back"))
-                           : ("(1-" + SubItems.Count + " or 0 to " + (i_IsRoot ? "Exit" : "Back"))) 
-                    + "):");
+                Console.WriteLine("0. " + backOption);
+                Console.WriteLine("Please enter your choice " + optionsToChooseFrom);
                 string usersChoice = Console.ReadLine();
 
                 if (int.TryParse(usersChoice, out int choice))
                 {
                     if(choice == 0)
                     {
-                        Console.WriteLine("Bye Bye");
+                        Console.WriteLine("Bye Bye (:");
                         break;
                     }
 
@@ -66,8 +65,10 @@ namespace Ex04.Menus.Events
                         {
                             Console.Clear();
                             selected.Action?.Invoke();
-                            Console.WriteLine(@"
-Press Enter to return...");
+                            Console.WriteLine("""
+
+                                              Press Enter to return...
+                                              """);
                             Console.ReadLine();
                         }
                     }
