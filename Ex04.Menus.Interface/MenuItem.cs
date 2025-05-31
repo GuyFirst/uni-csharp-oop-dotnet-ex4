@@ -44,7 +44,7 @@ namespace Ex04.Menus.Interface
                 Console.Clear();
                 if (Action != null)
                 {
-                    Action.Execute();
+                    Action.OnSelected();
                 }
                 Console.WriteLine("\nPress Enter to return...");
                 Console.ReadLine();
@@ -66,6 +66,7 @@ namespace Ex04.Menus.Interface
 
                 string userInput = Console.ReadLine();
                 int choice;
+
                 if (int.TryParse(userInput, out choice) && choice >= 0 && choice <= SubItems.Count)
                 {
                     if (choice == 0)

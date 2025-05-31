@@ -36,7 +36,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="CountLowerCaseHandler.cs" />
+    <Compile Include="MenuManager.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ShowDateHandler.cs" />
+    <Compile Include="ShowVersionHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ex04.Menus.Interface\Ex04.Menus.Interface.csproj">

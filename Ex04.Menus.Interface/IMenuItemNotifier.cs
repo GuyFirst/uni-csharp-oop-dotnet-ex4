@@ -2,6 +2,6 @@
 {
     public interface IMenuItemNotifier
     {
-        void Execute();
+        void OnSelected();
     }
 }
