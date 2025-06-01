@@ -34,15 +34,25 @@
         private static Events.MainMenu buildEventsMenu()
         {
             Events.MainMenu menu = new Events.MainMenu("Delegates Main Menu");
-
-            // Letters and Version submenu
             Events.MenuItem lettersAndVersion = new Events.MenuItem("Letters and Version");
-            lettersAndVersion.AddSubItem(new Events.MenuItem("Show Version", Events.MenuActions.ShowVersion));
-            lettersAndVersion.AddSubItem(new Events.MenuItem("Count Lowercase Letters", Events.MenuActions.CountLowercaseLetters));
-            // Date and Time submenu
+
+            Events.MenuItem showVersionItem = new Events.MenuItem("Show Version");
+            showVersionItem.SelectedAction += Events.MenuActions.ShowVersion;
+            lettersAndVersion.AddSubItem(showVersionItem);
+
+            Events.MenuItem countLowercaseItem = new Events.MenuItem("Count Lowercase Letters");
+            countLowercaseItem.SelectedAction += Events.MenuActions.CountLowercaseLetters;
+            lettersAndVersion.AddSubItem(countLowercaseItem);
+
             Events.MenuItem dateTime = new Events.MenuItem("Show Current Date/Time");
-            dateTime.AddSubItem(new Events.MenuItem("Show Current Time", Events.MenuActions.ShowTime));
-            dateTime.AddSubItem(new Events.MenuItem("Show Current Date", Events.MenuActions.ShowDate));
+            Events.MenuItem showDateItem = new Events.MenuItem("Show Current Date");
+            showDateItem.SelectedAction += Events.MenuActions.ShowDate;
+            dateTime.AddSubItem(showDateItem);
+
+            Events.MenuItem showTimeItem = new Events.MenuItem("Show Current Time");
+            showTimeItem.SelectedAction += Events.MenuActions.ShowTime;
+            dateTime.AddSubItem(showTimeItem);
+            
             menu.AddSubItem(lettersAndVersion);
             menu.AddSubItem(dateTime);
 
