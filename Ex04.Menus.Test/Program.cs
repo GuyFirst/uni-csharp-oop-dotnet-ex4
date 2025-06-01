@@ -31,24 +31,6 @@
             return mainMenu;
         }
 
-        //private static Events.MainMenu buildEventsMenu()
-        //{
-        //    Events.MainMenu menu = new Events.MainMenu("Delegates Main Menu");
-
-        //    // Letters and Version submenu
-        //    Events.MenuItem lettersAndVersion = new Events.MenuItem("Letters and Version");
-        //    lettersAndVersion.AddSubItem(new Events.MenuItem("Show Version", lettersAndVersion)); // Events.MenuActions.ShowVersion));
-        //    lettersAndVersion.AddSubItem(new Events.MenuItem("Count Lowercase Letters", lettersAndVersion)); // Events.MenuActions.CountLowercaseLetters));
-        //    // Date and Time submenu
-        //    Events.MenuItem dateTime = new Events.MenuItem("Show Current Date/Time");
-        //    dateTime.AddSubItem(new Events.MenuItem("Show Current Date", dateTime)); //Events.MenuActions.ShowDate));
-        //    dateTime.AddSubItem(new Events.MenuItem("Show Current Time", dateTime)); //Events.MenuActions.ShowTime));
-        //    menu.AddSubItem(lettersAndVersion);
-        //    menu.AddSubItem(dateTime);
-
-        //    return menu;
-        //}
-
         private static Events.MainMenu buildEventsMenu()
         {
             Events.MainMenu menu = new Events.MainMenu("Delegates Main Menu");
