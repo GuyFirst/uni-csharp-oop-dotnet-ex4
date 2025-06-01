@@ -1,71 +1,52 @@
-﻿using System;
-using Ex04.Menus.Interfaces;
-using System.Collections.Generic;
-
-namespace Ex04.Menus.Test
+﻿namespace Ex04.Menus.Test
 {
     public class Program
     {
         public static void Main()
         {
-            MainMenu mainMenu = new MainMenu("Main Menu");
+            //interfaces
+            MenuManager menuManager = new MenuManager(buildMainMenu());
+            menuManager.ShowMainMenu();
 
-            MenuItem lettersAndVersion = new MenuItem("Letters and Version");
-            lettersAndVersion.AddSubMenu(new MenuItem("Show Version", new ShowVersionNotifier()));
-            lettersAndVersion.AddSubMenu(new MenuItem("Count Lowercase Letters", new CountLowercaseNotifier()));
+            //delegates
+            Events.MainMenu mainMenuDelegates = buildEventsMenu();
+            mainMenuDelegates.Show();
+        }
 
-            MenuItem dateAndTime = new MenuItem("Show Current Date/Time");
-            dateAndTime.AddSubMenu(new MenuItem("Show Current Date", new ShowDateNotifier()));
-            dateAndTime.AddSubMenu(new MenuItem("Show Current Time", new ShowTimeNotifier()));
+        private static Interfaces.MainMenu buildMainMenu()
+        {
+            Interfaces.MainMenu mainMenu = new Interfaces.MainMenu("Interfaces Main Menu");
+
+            Interfaces.MenuItem lettersAndVersion = new Interfaces.MenuItem("Letters and Version");
+            lettersAndVersion.AddSubMenu(new Interfaces.MenuItem("Show Version", new ShowVersionHandler()));
+            lettersAndVersion.AddSubMenu(new Interfaces.MenuItem("Count Lowercase Letters", new CountLowercaseHandler()));
+
+            Interfaces.MenuItem dateAndTime = new Interfaces.MenuItem("Show Current Date/Time");
+            dateAndTime.AddSubMenu(new Interfaces.MenuItem("Show Current Date", new ShowDateHandler()));
+            dateAndTime.AddSubMenu(new Interfaces.MenuItem("Show Current Time", new ShowTimeHandler()));
 
             mainMenu.AddSubMenu(lettersAndVersion);
             mainMenu.AddSubMenu(dateAndTime);
 
-            mainMenu.Show();
+            return mainMenu;
         }
-    }
 
-    public class ShowVersionNotifier : IMenuItemNotifier
-    {
-        public void Execute()
+        private static Events.MainMenu buildEventsMenu()
         {
-            Console.WriteLine("App Version: 25.2.4.4480");
-        }
-    }
+            Events.MainMenu menu = new Events.MainMenu("Delegates Main Menu");
 
-    public class CountLowercaseNotifier : IMenuItemNotifier
-    {
-        public void Execute()
-        {
-            Console.Write("Please enter a sentence: ");
-            string input = Console.ReadLine();
-            int count = 0;
+            // Letters and Version submenu
+            Events.MenuItem lettersAndVersion = new Events.MenuItem("Letters and Version");
+            lettersAndVersion.AddSubItem(new Events.MenuItem("Show Version", Events.MenuActions.ShowVersion));
+            lettersAndVersion.AddSubItem(new Events.MenuItem("Count Lowercase Letters", Events.MenuActions.CountLowercaseLetters));
+            // Date and Time submenu
+            Events.MenuItem dateTime = new Events.MenuItem("Show Current Date/Time");
+            dateTime.AddSubItem(new Events.MenuItem("Show Current Time", Events.MenuActions.ShowTime));
+            dateTime.AddSubItem(new Events.MenuItem("Show Current Date", Events.MenuActions.ShowDate));
+            menu.AddSubItem(lettersAndVersion);
+            menu.AddSubItem(dateTime);
 
-            foreach (char c in input)
-            {
-                if (char.IsLower(c))
-                {
-                    count++;
-                }
-            }
-
-            Console.WriteLine("There are {0} lowercase letters.", count);
-        }
-    }
-
-    public class ShowDateNotifier : IMenuItemNotifier
-    {
-        public void Execute()
-        {
-            Console.WriteLine("Current Date is: {0}", DateTime.Now.ToShortDateString());
-        }
-    }
-
-    public class ShowTimeNotifier : IMenuItemNotifier
-    {
-        public void Execute()
-        {
-            Console.WriteLine("Current Time is: {0}", DateTime.Now.ToShortTimeString());
+            return menu;
         }
     }
 }

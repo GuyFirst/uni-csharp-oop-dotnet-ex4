@@ -44,7 +44,7 @@
     <Compile Include="ShowVersionHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Downloads\DELETE LATER\Ex04.Menus.Events\Ex04.Menus.Events.csproj">
+    <ProjectReference Include="..\Ex04.Menus.Events\Ex04.Menus.Events.csproj">
       <Project>{81c00173-3075-45fd-b887-1cc16c26ff53}</Project>
       <Name>Ex04.Menus.Events</Name>
     </ProjectReference>

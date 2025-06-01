@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex04.Menus.Test", "proj\Ex04.Menus.Test.csproj", "{AFFD4457-679F-447A-A3CC-6768502CC0D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex04.Menus.Test", "Ex04.Menus.Test\Ex04.Menus.Test.csproj", "{AFFD4457-679F-447A-A3CC-6768502CC0D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex04.Menus.Interfaces", "Ex04.Menus.Interface\Ex04.Menus.Interfaces.csproj", "{CE3A2534-5A21-475F-AC22-C4067F705261}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex04.Menus.Events", "..\..\..\Downloads\DELETE LATER\Ex04.Menus.Events\Ex04.Menus.Events.csproj", "{81C00173-3075-45FD-B887-1CC16C26FF53}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex04.Menus.Events", "Ex04.Menus.Events\Ex04.Menus.Events.csproj", "{81C00173-3075-45FD-B887-1CC16C26FF53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
