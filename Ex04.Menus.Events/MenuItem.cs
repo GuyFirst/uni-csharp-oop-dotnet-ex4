@@ -94,12 +94,12 @@ namespace Ex04.Menus.Events
                 Console.WriteLine($"{i + 1}. {i_SubItems[i].Title}");
             }
 
-            string backText = i_IsRoot ? "Exit" : "Back";
+            string backMenuText = i_IsRoot ? "Exit" : "Back";
             
-            Console.WriteLine($"0. {backText}");
+            Console.WriteLine($"0. {backMenuText}");
             string rangePart = i_SubItems.Count <= 1
-                ? $"(1 or 0 to {backText}):"
-                : $"(1-{i_SubItems.Count} or 0 to {backText}):";
+                ? $"(1 or 0 to {backMenuText}):"
+                : $"(1-{i_SubItems.Count} or 0 to {backMenuText}):";
 
             Console.WriteLine("Please enter your choice " + rangePart);
         }

@@ -34,34 +34,25 @@
         private static Events.MainMenu buildEventsMenu()
         {
             Events.MainMenu menu = new Events.MainMenu("Delegates Main Menu");
-
-            // Letters and Version submenu
             Events.MenuItem lettersAndVersion = new Events.MenuItem("Letters and Version");
 
-            // “Show Version” item: create first, then subscribe via +=
             Events.MenuItem showVersionItem = new Events.MenuItem("Show Version");
             showVersionItem.SelectedAction += Events.MenuActions.ShowVersion;
             lettersAndVersion.AddSubItem(showVersionItem);
 
-            // “Count Lowercase Letters” item
             Events.MenuItem countLowercaseItem = new Events.MenuItem("Count Lowercase Letters");
             countLowercaseItem.SelectedAction += Events.MenuActions.CountLowercaseLetters;
             lettersAndVersion.AddSubItem(countLowercaseItem);
 
-            // Date and Time submenu
             Events.MenuItem dateTime = new Events.MenuItem("Show Current Date/Time");
-
-            // “Show Current Date” item
             Events.MenuItem showDateItem = new Events.MenuItem("Show Current Date");
             showDateItem.SelectedAction += Events.MenuActions.ShowDate;
             dateTime.AddSubItem(showDateItem);
 
-            // “Show Current Time” item
             Events.MenuItem showTimeItem = new Events.MenuItem("Show Current Time");
             showTimeItem.SelectedAction += Events.MenuActions.ShowTime;
             dateTime.AddSubItem(showTimeItem);
-
-            // Attach the two submenus to the root
+            
             menu.AddSubItem(lettersAndVersion);
             menu.AddSubItem(dateTime);
 
