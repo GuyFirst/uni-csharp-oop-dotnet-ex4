@@ -1,19 +1,19 @@
-﻿using Ex04.Menus.Interface;
+﻿using Ex04.Menus.Interfaces;
 
 namespace Ex04.Menus.Test
 {
     internal class MenuManager
     {
-        private readonly MainMenu m_mainMenu;
+        private readonly MainMenu r_MainMenu;
 
         public MenuManager(MainMenu i_MainMenu)
         {
-            m_mainMenu = i_MainMenu;
+            r_MainMenu = i_MainMenu;
         }
 
         public void ShowMainMenu()
         {
-            m_mainMenu.Show();
+            r_MainMenu.Show();
         }
     }
 }

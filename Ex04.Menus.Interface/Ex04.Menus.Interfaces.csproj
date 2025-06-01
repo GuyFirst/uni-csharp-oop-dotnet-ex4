@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CE3A2534-5A21-475F-AC22-C4067F705261}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Ex04.interface</RootNamespace>
-    <AssemblyName>Ex04.@interface</AssemblyName>
+    <RootNamespace>Ex04.interfaces</RootNamespace>
+    <AssemblyName>Ex04.%40interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
