@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 
 namespace Ex04.Menus.Events
 {
@@ -29,6 +28,7 @@ namespace Ex04.Menus.Events
             }
 
             string letterSuffix = ("letter" + (numberOfLowercasedLetters != 1 ? "s" : ""));
+
             Console.WriteLine($"There are {numberOfLowercasedLetters} lowercase {letterSuffix} in your text.");
         }
 

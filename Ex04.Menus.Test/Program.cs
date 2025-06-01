@@ -31,18 +31,55 @@
             return mainMenu;
         }
 
+        //private static Events.MainMenu buildEventsMenu()
+        //{
+        //    Events.MainMenu menu = new Events.MainMenu("Delegates Main Menu");
+
+        //    // Letters and Version submenu
+        //    Events.MenuItem lettersAndVersion = new Events.MenuItem("Letters and Version");
+        //    lettersAndVersion.AddSubItem(new Events.MenuItem("Show Version", lettersAndVersion)); // Events.MenuActions.ShowVersion));
+        //    lettersAndVersion.AddSubItem(new Events.MenuItem("Count Lowercase Letters", lettersAndVersion)); // Events.MenuActions.CountLowercaseLetters));
+        //    // Date and Time submenu
+        //    Events.MenuItem dateTime = new Events.MenuItem("Show Current Date/Time");
+        //    dateTime.AddSubItem(new Events.MenuItem("Show Current Date", dateTime)); //Events.MenuActions.ShowDate));
+        //    dateTime.AddSubItem(new Events.MenuItem("Show Current Time", dateTime)); //Events.MenuActions.ShowTime));
+        //    menu.AddSubItem(lettersAndVersion);
+        //    menu.AddSubItem(dateTime);
+
+        //    return menu;
+        //}
+
         private static Events.MainMenu buildEventsMenu()
         {
             Events.MainMenu menu = new Events.MainMenu("Delegates Main Menu");
 
             // Letters and Version submenu
             Events.MenuItem lettersAndVersion = new Events.MenuItem("Letters and Version");
-            lettersAndVersion.AddSubItem(new Events.MenuItem("Show Version", Events.MenuActions.ShowVersion));
-            lettersAndVersion.AddSubItem(new Events.MenuItem("Count Lowercase Letters", Events.MenuActions.CountLowercaseLetters));
+
+            // “Show Version” item: create first, then subscribe via +=
+            Events.MenuItem showVersionItem = new Events.MenuItem("Show Version");
+            showVersionItem.SelectedAction += Events.MenuActions.ShowVersion;
+            lettersAndVersion.AddSubItem(showVersionItem);
+
+            // “Count Lowercase Letters” item
+            Events.MenuItem countLowercaseItem = new Events.MenuItem("Count Lowercase Letters");
+            countLowercaseItem.SelectedAction += Events.MenuActions.CountLowercaseLetters;
+            lettersAndVersion.AddSubItem(countLowercaseItem);
+
             // Date and Time submenu
             Events.MenuItem dateTime = new Events.MenuItem("Show Current Date/Time");
-            dateTime.AddSubItem(new Events.MenuItem("Show Current Time", Events.MenuActions.ShowTime));
-            dateTime.AddSubItem(new Events.MenuItem("Show Current Date", Events.MenuActions.ShowDate));
+
+            // “Show Current Date” item
+            Events.MenuItem showDateItem = new Events.MenuItem("Show Current Date");
+            showDateItem.SelectedAction += Events.MenuActions.ShowDate;
+            dateTime.AddSubItem(showDateItem);
+
+            // “Show Current Time” item
+            Events.MenuItem showTimeItem = new Events.MenuItem("Show Current Time");
+            showTimeItem.SelectedAction += Events.MenuActions.ShowTime;
+            dateTime.AddSubItem(showTimeItem);
+
+            // Attach the two submenus to the root
             menu.AddSubItem(lettersAndVersion);
             menu.AddSubItem(dateTime);
 
