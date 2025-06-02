@@ -9,6 +9,7 @@ namespace Ex04.Menus.Interfaces
         public string Title { get; }
         public List<MenuItem> SubItems { get; }
         public IMenuItemNotifier Action { get; }
+        public readonly bool m_IsRoot; 
 
         public bool IsLeaf
         {
@@ -23,6 +24,7 @@ namespace Ex04.Menus.Interfaces
             Title = i_Title;
             Action = i_Action;
             SubItems = new List<MenuItem>();
+            m_IsRoot = false;
         }
 
         public MenuItem(string i_Title)
@@ -30,6 +32,15 @@ namespace Ex04.Menus.Interfaces
             Title = i_Title;
             SubItems = new List<MenuItem>();
             Action = null;
+            m_IsRoot = false;
+        }
+
+        public MenuItem(string i_Title, bool i_IsRoot)
+        {
+            Title = i_Title;
+            SubItems = new List<MenuItem>();
+            Action = null;
+            m_IsRoot = i_IsRoot;
         }
 
         public void AddSubMenu(MenuItem i_SubItem)
@@ -97,7 +108,10 @@ namespace Ex04.Menus.Interfaces
                 menuBuilder.AppendLine((i + 1).ToString() + ". " + SubItems[i].Title);
             }
 
-            menuBuilder.AppendLine("0. Back");
+            string backOrExit = m_IsRoot ? "Exit" : "Back";
+
+            menuBuilder.Append("0. ");
+            menuBuilder.AppendLine(backOrExit);
             menuBuilder.Append("Please enter your choice (0-" + SubItems.Count + "): ");
 
             return menuBuilder.ToString();
