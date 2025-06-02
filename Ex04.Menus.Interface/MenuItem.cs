@@ -48,7 +48,7 @@ namespace Ex04.Menus.Interfaces
             SubItems.Add(i_SubItem);
         }
 
-        public void Execute()
+        public void Invoke()
         {
             if (IsLeaf)
             {
@@ -86,7 +86,7 @@ namespace Ex04.Menus.Interfaces
                     }
                     else
                     {
-                        SubItems[choice - 1].Execute();
+                        SubItems[choice - 1].Invoke();
                     }
                 }
                 else

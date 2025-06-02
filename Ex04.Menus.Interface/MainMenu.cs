@@ -17,7 +17,7 @@
 
         public void Show()
         {
-            r_Root.Execute();
+            r_Root.Invoke();
         }
     }
 }
