@@ -2,13 +2,12 @@
 {
     public class MainMenu
     {
+        private const bool k_IsRoot = true;
         private readonly MenuItem r_Root;
-        
+
         public MainMenu(string i_Title)
         {
-            const bool v_IsRoot = true;
-
-            r_Root = new MenuItem(i_Title, v_IsRoot);
+            r_Root = new MenuItem(i_Title, k_IsRoot);
         }
 
         public void AddSubMenu(MenuItem i_SubItem)
@@ -22,4 +21,3 @@
         }
     }
 }
-
