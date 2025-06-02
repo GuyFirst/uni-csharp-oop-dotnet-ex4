@@ -37,7 +37,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CountLowerCaseHandler.cs" />
-    <Compile Include="MenuManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ShowDateHandler.cs" />
     <Compile Include="ShowTimeHandler.cs" />

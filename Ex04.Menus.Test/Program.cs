@@ -1,19 +1,16 @@
-﻿using Ex04.Menus.Events;
-using System;
-
-namespace Ex04.Menus.Test
+﻿namespace Ex04.Menus.Test
 {
     public class Program
     {
+        private static Interfaces.MainMenu m_InterfaceMainMenu;
+        private static Events.MainMenu m_DelegatesMainMenu;
+
         public static void Main()
         {
-            //interfaces
-            MenuManager menuManager = new MenuManager(buildMainMenu());
-            menuManager.ShowMainMenu();
-
-            //delegates
-            Events.MainMenu mainMenuDelegates = buildEventsMenu();
-            mainMenuDelegates.Show();
+            m_InterfaceMainMenu = buildMainMenu();
+            m_InterfaceMainMenu.Show();
+            m_DelegatesMainMenu = buildEventsMenu();
+            m_DelegatesMainMenu.Show();
         }
 
         private static Interfaces.MainMenu buildMainMenu()
@@ -37,7 +34,7 @@ namespace Ex04.Menus.Test
         private static Events.MainMenu buildEventsMenu()
         {
             Events.MainMenu menu = new Events.MainMenu("Delegates Main Menu");
-            MenuActions menuActions = new Events.MenuActions();
+            Events.MenuActions menuActions = new Events.MenuActions();
             Events.MenuItem lettersAndVersion = new Events.MenuItem("Letters and Version");
             Events.MenuItem showVersionItem = new Events.MenuItem("Show Version");
             showVersionItem.SelectedAction += menuActions.showVersion_SelectedAction;
