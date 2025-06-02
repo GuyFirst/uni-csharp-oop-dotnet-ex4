@@ -5,12 +5,12 @@ namespace Ex04.Menus.Events
     public class MenuActions
     {
         private const string k_AppVersion = "25.2.4.4480";
-        public static void ShowVersion()
+        public void showVersion_SelectedAction()
         {
             Console.WriteLine($"App Version: {k_AppVersion}");
         }
 
-        public static void CountLowercaseLetters()
+        public void CountLowercaseLetters_SelectedAction()
         {
             Console.Write("Enter a sentence: ");
             string userInput = Console.ReadLine();
@@ -32,12 +32,12 @@ namespace Ex04.Menus.Events
             Console.WriteLine($"There are {numberOfLowercasedLetters} lowercase {letterSuffix} in your text.");
         }
 
-        public static void ShowTime()
+        public void ShowTime_SelectedAction()
         {
             Console.WriteLine($"Current Time is {DateTime.Now:HH:mm}");
         }
 
-        public static void ShowDate()
+        public void ShowDate_SelectedAction()
         {
             Console.WriteLine($"Today's date is {DateTime.Now:dd/MM/yyyy}");
         }
