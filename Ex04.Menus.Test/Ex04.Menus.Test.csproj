@@ -37,7 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CountLowerCaseHandler.cs" />
-    <Compile Include="MenuManager.cs" />
+    <Compile Include="MainMenuBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ShowDateHandler.cs" />
     <Compile Include="ShowTimeHandler.cs" />
@@ -48,8 +48,8 @@
       <Project>{81c00173-3075-45fd-b887-1cc16c26ff53}</Project>
       <Name>Ex04.Menus.Events</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Ex04.Menus.Interface\Ex04.Menus.Interfaces.csproj">
-      <Project>{ce3a2534-5a21-475f-ac22-c4067f705261}</Project>
+    <ProjectReference Include="..\Ex04.Menus.Interfaces\Ex04.Menus.Interfaces.csproj">
+      <Project>{0f2f271a-4ce8-4dd3-ba9a-6fc21fdc0c2e}</Project>
       <Name>Ex04.Menus.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>

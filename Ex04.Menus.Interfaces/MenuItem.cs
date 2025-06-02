@@ -9,13 +9,13 @@ namespace Ex04.Menus.Interfaces
         public string Title { get; }
         public List<MenuItem> SubItems { get; }
         public IMenuItemNotifier Action { get; }
-        public readonly bool m_IsRoot; 
+        public readonly bool m_IsRoot;
 
         public bool IsLeaf
         {
             get
             {
-                return SubItems.Count == 0;
+                return (SubItems.Count == 0);
             }
         }
 
@@ -54,7 +54,10 @@ namespace Ex04.Menus.Interfaces
             {
                 Console.Clear();
                 Action?.OnSelected();
-                Console.WriteLine("\nPress Enter to return...");
+                Console.WriteLine(
+                    """
+                    Press Enter to return...
+                    """);
                 Console.ReadLine();
             }
             else
@@ -70,12 +73,10 @@ namespace Ex04.Menus.Interfaces
             while (!exitSubMenu)
             {
                 Console.Clear();
-                Console.Write(BuildMenuDisplay());
-
+                Console.Write(buildMenuDisplay());
                 string userInput = Console.ReadLine();
-                int choice;
 
-                if (int.TryParse(userInput, out choice) && choice >= 0 && choice <= SubItems.Count)
+                if (int.TryParse(userInput, out int choice) && choice >= 0 && choice <= SubItems.Count)
                 {
                     if (choice == 0)
                     {
@@ -94,22 +95,22 @@ namespace Ex04.Menus.Interfaces
             }
         }
 
-        private string BuildMenuDisplay()
+        private string buildMenuDisplay()
         {
             StringBuilder menuBuilder = new StringBuilder();
-            menuBuilder.AppendLine("** " + Title + " **");
+            menuBuilder.AppendLine($"** {Title} **");
             menuBuilder.AppendLine(new string('-', Title.Length + 6));
 
             for (int i = 0; i < SubItems.Count; i++)
             {
-                menuBuilder.AppendLine((i + 1).ToString() + ". " + SubItems[i].Title);
+                menuBuilder.AppendLine((i + 1) + ". " + SubItems[i].Title);
             }
 
             string backOrExit = m_IsRoot ? "Exit" : "Back";
 
             menuBuilder.Append("0. ");
             menuBuilder.AppendLine(backOrExit);
-            menuBuilder.Append("Please enter your choice (0-" + SubItems.Count + "): ");
+            menuBuilder.Append("Please enter your choice (0 - " + SubItems.Count + "): ");
 
             return menuBuilder.ToString();
         }

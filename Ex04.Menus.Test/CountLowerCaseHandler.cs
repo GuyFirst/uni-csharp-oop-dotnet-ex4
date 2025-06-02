@@ -8,10 +8,10 @@ namespace Ex04.Menus.Test
         public void OnSelected()
         {
             Console.Write("Please enter a sentence: ");
-            string input = Console.ReadLine();
+            string userInput = Console.ReadLine();
             int lowercaseCount = 0;
 
-            foreach (char character in input)
+            foreach (char character in userInput)
             {
                 if (char.IsLower(character))
                 {
