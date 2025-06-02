@@ -7,6 +7,7 @@
         public MainMenu(string i_Title)
         {
             const bool v_IsRoot = true;
+
             r_Root = new MenuItem(i_Title, v_IsRoot);
         }
 
