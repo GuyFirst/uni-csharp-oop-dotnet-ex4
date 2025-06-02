@@ -53,10 +53,7 @@ namespace Ex04.Menus.Interfaces
             if (IsLeaf)
             {
                 Console.Clear();
-                if (Action != null)
-                {
-                    Action.OnSelected();
-                }
+                Action?.OnSelected();
                 Console.WriteLine("\nPress Enter to return...");
                 Console.ReadLine();
             }
