@@ -4,16 +4,16 @@ namespace Ex04.Menus.Test
 {
     internal class MenuManager
     {
-        private readonly MainMenu r_MainMenu;
+        private MainMenu m_MainMenu;
 
         public MenuManager(MainMenu i_MainMenu)
         {
-            r_MainMenu = i_MainMenu;
+            m_MainMenu = i_MainMenu;
         }
 
         public void ShowMainMenu()
         {
-            r_MainMenu.Show();
+            m_MainMenu.Show();
         }
     }
 }
