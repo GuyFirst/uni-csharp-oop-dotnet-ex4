@@ -5,6 +5,7 @@ namespace Ex04.Menus.Events
     public class MenuActions
     {
         private const string k_AppVersion = "25.2.4.4480";
+
         public void showVersion_SelectedAction()
         {
             Console.WriteLine($"App Version: {k_AppVersion}");

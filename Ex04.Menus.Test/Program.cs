@@ -1,4 +1,5 @@
 ﻿using Ex04.Menus.Events;
+using System;
 
 namespace Ex04.Menus.Test
 {
@@ -37,32 +38,26 @@ namespace Ex04.Menus.Test
         {
             Events.MainMenu menu = new Events.MainMenu("Delegates Main Menu");
             MenuActions menuActions = new Events.MenuActions();
-            {
-                Events.MenuItem lettersAndVersion = new Events.MenuItem("Letters and Version");
-                {
-                    Events.MenuItem showVersionItem = new Events.MenuItem("Show Version");
-                    showVersionItem.SelectedAction += menuActions.showVersion_SelectedAction;
-                    lettersAndVersion.AddSubItem(showVersionItem);
+            Events.MenuItem lettersAndVersion = new Events.MenuItem("Letters and Version");
+            Events.MenuItem showVersionItem = new Events.MenuItem("Show Version");
+            showVersionItem.SelectedAction += menuActions.showVersion_SelectedAction;
+            lettersAndVersion.AddSubItem(showVersionItem);
 
-                    Events.MenuItem countLowercaseItem = new Events.MenuItem("Count Lowercase Letters");
-                    countLowercaseItem.SelectedAction += menuActions.CountLowercaseLetters_SelectedAction;
-                    lettersAndVersion.AddSubItem(countLowercaseItem);
-                }
+            Events.MenuItem countLowercaseItem = new Events.MenuItem("Count Lowercase Letters");
+            countLowercaseItem.SelectedAction += menuActions.CountLowercaseLetters_SelectedAction;
+            lettersAndVersion.AddSubItem(countLowercaseItem);
 
-                Events.MenuItem dateTime = new Events.MenuItem("Show Current Date/Time");
-                {
-                    Events.MenuItem showDateItem = new Events.MenuItem("Show Current Date");
-                    showDateItem.SelectedAction += menuActions.ShowDate_SelectedAction;
-                    dateTime.AddSubItem(showDateItem);
+            Events.MenuItem dateTime = new Events.MenuItem("Show Current Date/Time");
+            Events.MenuItem showDateItem = new Events.MenuItem("Show Current Date");
+            showDateItem.SelectedAction += menuActions.ShowDate_SelectedAction;
+            dateTime.AddSubItem(showDateItem);
 
-                    Events.MenuItem showTimeItem = new Events.MenuItem("Show Current Time");
-                    showTimeItem.SelectedAction += menuActions.ShowTime_SelectedAction;
-                    dateTime.AddSubItem(showTimeItem);
-                }
+            Events.MenuItem showTimeItem = new Events.MenuItem("Show Current Time");
+            showTimeItem.SelectedAction += menuActions.ShowTime_SelectedAction;
+            dateTime.AddSubItem(showTimeItem);
 
-                menu.AddSubItem(lettersAndVersion);
-                menu.AddSubItem(dateTime);
-            }
+            menu.AddSubItem(lettersAndVersion);
+            menu.AddSubItem(dateTime);
 
             return menu;
         }
